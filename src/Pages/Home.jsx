@@ -1,7 +1,6 @@
-import Navbar from "../Components/Navbar";
-import Baner from "../Components/Baner";
-import Category from "../Components/Category";
-import ProductList from "../Components/ProductList";
+import NavBar from "../Components/Navbar";
+
+
 
 import img1 from "../assets/product-thumb-1.png";
 import img2 from "../assets/product-thumb-2.png";
@@ -89,12 +88,11 @@ const Products = [
 
 function Home() {
   return (
-    <>
-      <Navbar />
-      <Baner />
-      <Category />
-      <ProductList products={Products} />
-    </>
+    
+      <NavBar products={Products} />
+      
+      
+    
   );
 }
 
