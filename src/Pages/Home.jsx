@@ -1,6 +1,5 @@
 import NavBar from "../Components/Navbar";
-
-
+import Baner from "../Components/Baner";
 
 import img1 from "../assets/product-thumb-1.png";
 import img2 from "../assets/product-thumb-2.png";
@@ -88,8 +87,11 @@ const Products = [
 
 function Home() {
   return (
-    
-      <NavBar products={Products} />
+    <>
+    <NavBar products={Products} />
+    <Baner/>
+    </>
+      
       
       
     
