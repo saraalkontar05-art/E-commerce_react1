@@ -1,5 +1,6 @@
 import NavBar from "../Components/Navbar";
 import Baner from "../Components/Baner";
+import Category from "../Components/Category";
 
 import img1 from "../assets/product-thumb-1.png";
 import img2 from "../assets/product-thumb-2.png";
@@ -90,6 +91,7 @@ function Home() {
     <>
     <NavBar products={Products} />
     <Baner/>
+    <Category/>
     </>
       
       
