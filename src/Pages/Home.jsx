@@ -1,6 +1,7 @@
 import NavBar from "../Components/Navbar";
 import Baner from "../Components/Baner";
 import Category from "../Components/Category";
+import ProductList from "../Components/ProductList";
 
 import img1 from "../assets/product-thumb-1.png";
 import img2 from "../assets/product-thumb-2.png";
@@ -25,21 +26,21 @@ const Products = [
     id: 2,
     image: img2,
     name: "Whole Grain Oatmeal",
-    rating: 4.5,
+    rating: 4,
     price: 50.0,
   },
   {
     id: 3,
     image: img3,
     name: "Sharp Cheddar Cheese Block",
-    rating: 4.5,
+    rating: 3,
     price: 12.0,
   },
   {
     id: 4,
     image: img4,
     name: "Organic Baby Spinach",
-    rating: 4.5,
+    rating: 5,
     price: 18.0,
   },
   {
@@ -53,14 +54,14 @@ const Products = [
     id: 6,
     image: img6,
     name: "Fresh Salmon",
-    rating: 4.5,
+    rating: 1,
     price: 18.0,
   },
   {
     id: 7,
     image: img7,
     name: "Imported Italian Spaghetti Pasta",
-    rating: 4.5,
+    rating: 2,
     price: 18.0,
   },
   {
@@ -74,14 +75,14 @@ const Products = [
     id: 9,
     image: img9,
     name: "Organic 2% Reduced Fat Milk",
-    rating: 4.5,
+    rating: 3,
     price: 18.0,
   },
   {
     id: 10,
     image: img10,
     name: "Greek Style Plain Yogurt",
-    rating: 4.5,
+    rating: 5,
     price: 18.0,
   },
 ];
@@ -92,6 +93,7 @@ function Home() {
     <NavBar products={Products} />
     <Baner/>
     <Category/>
+    <ProductList productsView={Products}/>
     </>
       
       

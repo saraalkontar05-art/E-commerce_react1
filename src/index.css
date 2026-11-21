@@ -17,33 +17,36 @@ body{
 }
 
 .product-card{
-    border: none;
-    text-align: center;
+    border: none !important;
+    text-align: center !important;
 }
 .product-card:hover{
-    background-color: white;
-    box-shadow: 0 5px 9px gray;
+    background-color: white !important;
+    box-shadow: 0 5px 9px gray !important;
 }
-.prouct-card:hover .footer-card{
+.product-card:hover .footer-card{
     display: flex !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    opacity: 1 !important;
 }
 .btn-add{
-    background-color: rgba(107,178,1,1);
-    border: none;
-    border-radius: 10px;
-    color: white;
+    background-color: rgba(107,178,1,1) !important;
+    border: none !important;
+    border-radius: 5px !important;
+    color: white !important;
 }
 .btn-add:hover{
-    background-color: rgba(249,95,9,1);
+    background-color: rgba(249,95,9,1) !important;
 }
 .btn-heart{
-    background-color: transparent;
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 10px;
-    color: black;
+    background-color: transparent !important;
+    border: 1px solid black !important;
+    border-radius: 5px !important;
+    padding: 10px !important;
+    color: black !important;
 }
 .btn-heart:hover{
-    background-color: black;
-    color: white;
+    background-color: black !important;
+    color: white !important;
 }
