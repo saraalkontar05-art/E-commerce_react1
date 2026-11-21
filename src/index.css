@@ -15,3 +15,35 @@ body{
     background-color: rgba(107,178,1,1) !important;
     color: gray !important;
 }
+
+.product-card{
+    border: none;
+    text-align: center;
+}
+.product-card:hover{
+    background-color: white;
+    box-shadow: 0 5px 9px gray;
+}
+.prouct-card:hover .footer-card{
+    display: flex !important;
+}
+.btn-add{
+    background-color: rgba(107,178,1,1);
+    border: none;
+    border-radius: 10px;
+    color: white;
+}
+.btn-add:hover{
+    background-color: rgba(249,95,9,1);
+}
+.btn-heart{
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    color: black;
+}
+.btn-heart:hover{
+    background-color: black;
+    color: white;
+}
