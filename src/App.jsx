@@ -1,11 +1,15 @@
 import Home from "./Pages/Home";
+import {CartProvider} from "./Context/CartContext";
 import "bootstrap/dist/css/bootstrap.min.css"
 
 function App() {
   
 
   return (
-    <Home/>
+    <CartProvider>
+       <Home/>
+    </CartProvider>
+    
   )
 }
 

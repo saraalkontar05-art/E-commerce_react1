@@ -1,11 +1,12 @@
 import { Button } from "react-bootstrap";
 import { FaStar, FaShoppingCart, FaHeart } from "react-icons/fa";
-import { CartContextn } from "../Context/CartContext";
-import { useContext } from "react";
+import { CartContext } from "../Context/CartContext";
+import { useContext, useState } from "react";
 
 function ProductCard({objectProduct}) {
 
-  const {addToCart} = useContext(CartContextn);
+  const {addToCart, updateQuantity} = useContext(CartContext);
+  const [quantity , setQuantity] = useState(0);
 
 
 
@@ -26,9 +27,13 @@ function ProductCard({objectProduct}) {
       <span>{renderStars(objectProduct.rating)}</span>
       <p><span className="text-decoration-line-through me-2 text-secondary small">${parseFloat(objectProduct.price / 0.90).toFixed(2)}</span><span className="fw-bold">${(objectProduct.price).toFixed(2)} </span><span className="border border-1 text-muted ms-2">10% OFF</span></p>
       <div className="footer-card opacity-0">
-        <input type="number" min={0} defaultValue={0} style={{width:"30%" , border:"1px solid",borderRadius:"5px"}}/>
+        <input type="number" min={1} value={quantity}
+        onChange={(e) => setQuantity(Number(e.target.value))}
+        style={{width:"30%" , border:"1px solid",borderRadius:"5px"}}/>
         <Button 
-        onClick={()=> addToCart(objectProduct)}
+        onClick={()=>{
+           addToCart(objectProduct,quantity);
+          setQuantity(quantity +1);}}
         className="btn-add px-md-1 px-5"><FaShoppingCart/> Add to Cart</Button>
         <Button className="btn-heart"><FaHeart/></Button>
       </div>

@@ -6,10 +6,13 @@ import {
   FaSearch,
 } from "react-icons/fa";
 import logo from "../assets/logo.svg";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../Context/CartContext";
 
 const NavBar = ({ products }) => {
+  const { totalItems, setOpen } = useContext(CartContext);
+
   const [search, setSearch] = useState("");
   const filterSearch = products.filter((product) =>
     product.name.toLowerCase().includes(search.toLowerCase()),
@@ -40,8 +43,12 @@ const NavBar = ({ products }) => {
           </Col>
           <Col md={3} className="d-flex justify-content-center my-3 my-md-0">
             <div className="d-flex gap-4 fw-bold">
-              <Nav.Link as={Link} to="/">HOME</Nav.Link>
-              <Nav.Link as={Link} to="/">PAGES</Nav.Link>
+              <Nav.Link as={Link} to="/">
+                HOME
+              </Nav.Link>
+              <Nav.Link as={Link} to="/">
+                PAGES
+              </Nav.Link>
             </div>
           </Col>
           <Col md={3} className="d-flex justify-content-center ">
@@ -52,8 +59,24 @@ const NavBar = ({ products }) => {
               <Nav.Link>
                 <FaRegBookmark />
               </Nav.Link>
-              <Nav.Link as={Link} to="./Cart">
+              <Nav.Link
+              onClick={()=>setOpen(true)}
+              className="position-relative">
                 <FaShoppingCart />
+                <span
+                  style={{
+                    backgroundColor: "rgba(107,178,1,1)",
+                    color: "white",
+                    padding: "0 5px",
+                    borderRadius: "15px",
+                    position: "absolute",
+                    top: "-5px",
+                    left: "100%",
+                  }}
+                  className="small"
+                >
+                  {totalItems}
+                </span>
               </Nav.Link>
             </div>
           </Col>

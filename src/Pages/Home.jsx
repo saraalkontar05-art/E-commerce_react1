@@ -2,6 +2,7 @@ import NavBar from "../Components/Navbar";
 import Baner from "../Components/Baner";
 import Category from "../Components/Category";
 import ProductList from "../Components/ProductList";
+import CartSidebar from "../Components/CartSidebar";
 
 import img1 from "../assets/product-thumb-1.png";
 import img2 from "../assets/product-thumb-2.png";
@@ -93,12 +94,12 @@ function Home() {
     <NavBar products={Products} />
     <Baner/>
     <Category/>
+    <div id="products">
     <ProductList productsView={Products}/>
-    </>
-      
-      
-      
+    </div>
     
+    <CartSidebar/>
+    </>    
   );
 }
 

@@ -5,6 +5,8 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
+  const [open, setOpen] = useState(false);
+
    useEffect(() => {
     const savedCard = localStorage.getItem("cart");
     if (savedCard) {
@@ -16,17 +18,18 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-  const addToCart = (product) => {
+  const addToCart = (product , quantity) => {
+    console.log(product,quantity);
     setCart((oldCart) => {
       const existingItem = oldCart.find((item) => item.id === product.id);
       if (existingItem) {
         return oldCart.map((item) =>
           item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
+            ? { ...item, quantity: (Number(item.quantity) || 0) + (Number(quantity) || 0) }
             : item,
         );
       }
-      return [...oldCart, { ...product, quantity: 1 }];
+      return [...oldCart, { ...product, quantity: Number(quantity) || 1 }];
     });
   };
 
@@ -43,7 +46,12 @@ export const CartProvider = ({ children }) => {
     );
   };
 
-  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const totalItems = cart.reduce((sum, item) => sum + Number(item.quantity), 0);
+
+  const totalPrice = cart.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0,
+  );
 
    return (
     <CartContext.Provider
@@ -54,6 +62,8 @@ export const CartProvider = ({ children }) => {
         updateQuantity,
         totalItems,
         totalPrice,
+        open,
+        setOpen,
       }}
     >
       {children}

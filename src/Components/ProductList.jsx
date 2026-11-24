@@ -3,7 +3,7 @@ import ProductCard from "./ProductCard";
 
 const ProductList = ({ productsView }) => {
   return (
-    <Container>
+    <Container >
       <Row>
         {productsView.map((product) => (
           <Col lg={3} md={4} key={product.id}>
